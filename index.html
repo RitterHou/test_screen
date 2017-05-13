@@ -1,6 +1,7 @@
 <!--
     代码修改自 http://blog.xcatliu.com/2017/01/19/full_color_screen/
     同时发现网站 http://pingmu.zh-ang.com/ 也很好玩
+    源码在 https://github.com/RitterHou/test_screen
 -->
 <!DOCTYPE html>
 <html>
@@ -8,88 +9,21 @@
     <meta charset="utf-8">
     <title></title>
 </head>
-<style>
-html, body {
-  width: 100%;
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-size: 20px;
-  line-height: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, Arial, Helvetica, STHeiti, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
-<body class="flex-container" oncontextmenu="return false;">
-<div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-    <p>数据加载中...</p>
+<link rel="stylesheet" href="css/index.css">
+<body class="flex-container" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;" unselectable="on" onselectstart="return false;" onmousedown="return false;" oncontextmenu="return false;">
+<div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
+<div style="display: none;">
+    <p>hello, world</p>
 </div>
 <audio autoplay loop oncanplay="readyToPlay()">
       <source src="いけないボーダーライン(Remix).mp3">
 </audio>
 </body>
-<script>
- var COLORS = [
-    {
-      name: 'white',
-      backgroundColor: 'white',
-      foregroundColor: 'black',
-    },
-    {
-      name: 'red',
-      backgroundColor: 'red',
-      foregroundColor: 'white',
-    },
-    {
-      name: 'green',
-      backgroundColor: 'green',
-      foregroundColor: 'white',
-    },
-    {
-      name: 'blue',
-      backgroundColor: 'blue',
-      foregroundColor: 'white',
-    },
-    {
-      name: 'cyan',
-      backgroundColor: 'cyan',
-      foregroundColor: 'black',
-    },
-    {
-      name: 'yellow',
-      backgroundColor: 'yellow',
-      foregroundColor: 'black',
-    },
-    {
-      name: 'magenta',
-      backgroundColor: 'magenta',
-      foregroundColor: 'black',
-    },
-    {
-      name: 'black',
-      backgroundColor: 'black',
-      foregroundColor: 'white',
-    }
-];
-function readyToPlay() {
-    window.setTimeout(startToPlay, 1500);
-}
-function startToPlay() {
-    document.querySelector("div p").innerText = 'hello, world';
-    renderNextColor();
-}
-var colorIndex = 0;
-function renderNextColor() {
-    colorIndex = (colorIndex + 1) % COLORS.length;
-    document.body.style.backgroundColor = COLORS[colorIndex].backgroundColor;
-    document.body.style.color = COLORS[colorIndex].foregroundColor;
-
-    window.setTimeout(renderNextColor, 20);
-}
-</script>
+<script src="js/index.js"></script>
 </html>
