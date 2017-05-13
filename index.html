@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title></title>
 </head>
 <style>
@@ -26,7 +27,7 @@ body {
 </style>
 <body class="flex-container" oncontextmenu="return false;">
 <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-    <p>hello, world</p>
+    <p>数据加载中...</p>
 </div>
 <audio autoplay loop oncanplay="readyToPlay()">
       <source src="いけないボーダーライン(Remix).mp3">
@@ -76,9 +77,12 @@ body {
     }
 ];
 function readyToPlay() {
-    window.setTimeout(renderNextColor, 1500);
+    window.setTimeout(startToPlay, 1500);
 }
-
+function startToPlay() {
+    document.querySelector("div p").innerText = 'hello, world';
+    renderNextColor();
+}
 var colorIndex = 0;
 function renderNextColor() {
     colorIndex = (colorIndex + 1) % COLORS.length;
