@@ -1,0 +1,85 @@
+<!--
+    代码修改自 http://blog.xcatliu.com/2017/01/19/full_color_screen/
+    同时发现网站 http://pingmu.zh-ang.com/ 也很好玩
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, Arial, Helvetica, STHeiti, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+<body class="flex-container">
+<div>
+    <p>hello, world</p>
+</div>
+</body>
+<script>
+ var COLORS = [
+    {
+      name: 'white',
+      backgroundColor: 'white',
+      foregroundColor: 'black',
+    },
+    {
+      name: 'red',
+      backgroundColor: 'red',
+      foregroundColor: 'white',
+    },
+    {
+      name: 'green',
+      backgroundColor: 'green',
+      foregroundColor: 'white',
+    },
+    {
+      name: 'blue',
+      backgroundColor: 'blue',
+      foregroundColor: 'white',
+    },
+    {
+      name: 'cyan',
+      backgroundColor: 'cyan',
+      foregroundColor: 'black',
+    },
+    {
+      name: 'yellow',
+      backgroundColor: 'yellow',
+      foregroundColor: 'black',
+    },
+    {
+      name: 'magenta',
+      backgroundColor: 'magenta',
+      foregroundColor: 'black',
+    },
+    {
+      name: 'black',
+      backgroundColor: 'black',
+      foregroundColor: 'white',
+    }
+];
+var colorIndex = 0;
+renderNextColor();
+function renderNextColor() {
+    colorIndex = (colorIndex + 1) % COLORS.length;
+    document.body.style.backgroundColor = COLORS[colorIndex].backgroundColor;
+    document.body.style.color = COLORS[colorIndex].foregroundColor;
+
+    window.setTimeout(renderNextColor, 20);
+}
+</script>
+</html>
