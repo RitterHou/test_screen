@@ -28,7 +28,7 @@ body {
 <div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
     <p>hello, world</p>
 </div>
-<audio autoplay loop>
+<audio autoplay loop oncanplay="readyToPlay()">
       <source src="いけないボーダーライン(Remix).mp3">
 </audio>
 </body>
@@ -75,8 +75,11 @@ body {
       foregroundColor: 'white',
     }
 ];
+function readyToPlay() {
+    window.setTimeout(renderNextColor, 1500);
+}
+
 var colorIndex = 0;
-window.setTimeout(renderNextColor, 1500);
 function renderNextColor() {
     colorIndex = (colorIndex + 1) % COLORS.length;
     document.body.style.backgroundColor = COLORS[colorIndex].backgroundColor;
