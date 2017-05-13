@@ -24,10 +24,13 @@ body {
   justify-content: center;
 }
 </style>
-<body class="flex-container">
-<div>
+<body class="flex-container" oncontextmenu="return false;">
+<div style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; -o-user-select: none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
     <p>hello, world</p>
 </div>
+<audio autoplay loop>
+      <source src="いけないボーダーライン(Remix).mp3">
+</audio>
 </body>
 <script>
  var COLORS = [
@@ -73,7 +76,7 @@ body {
     }
 ];
 var colorIndex = 0;
-renderNextColor();
+window.setTimeout(renderNextColor, 1500);
 function renderNextColor() {
     colorIndex = (colorIndex + 1) % COLORS.length;
     document.body.style.backgroundColor = COLORS[colorIndex].backgroundColor;
