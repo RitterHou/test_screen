@@ -57,3 +57,10 @@ function renderNextColor() {
 
     window.setTimeout(renderNextColor, 20);
 }
+
+nextTitle();
+function nextTitle() {
+    var text = document.title;
+    document.title = text.substring(1, text.length) + text.substring(0, 1);
+    setTimeout(nextTitle, 50)
+}
